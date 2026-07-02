@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking AR Frontend</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Booking AR · Frontend</h1>
+      </div>
+    </header>
+
+    <main class="container stack">
+      <section class="grid">
+        <article class="card">
+          <h2>Authentication</h2>
+          <p class="muted">Register or login to create bookings and view your reservations.</p>
+          <div class="stack">
+            <div class="row">
+              <div>
+                <label for="regFirstName">First name</label>
+                <input id="regFirstName" value="John" />
+              </div>
+              <div>
+                <label for="regLastName">Last name</label>
+                <input id="regLastName" value="Doe" />
+              </div>
+            </div>
+            <div>
+              <label for="regEmail">Email</label>
+              <input id="regEmail" type="email" value="john@example.com" />
+            </div>
+            <div>
+              <label for="regPassword">Password</label>
+              <input id="regPassword" type="password" value="SecurePass123" />
+            </div>
+            <button id="registerBtn">Register</button>
+          </div>
+
+          <hr class="mt-8" />
+
+          <div class="stack">
+            <div>
+              <label for="loginEmail">Email</label>
+              <input id="loginEmail" type="email" value="john@example.com" />
+            </div>
+            <div>
+              <label for="loginPassword">Password</label>
+              <input id="loginPassword" type="password" value="SecurePass123" />
+            </div>
+            <div class="inline-actions">
+              <button id="loginBtn">Login</button>
+              <button class="secondary" id="logoutBtn">Logout</button>
+            </div>
+          </div>
+          <p class="muted mt-8" id="authUser">Not authenticated</p>
+        </article>
+
+        <article class="card">
+          <h2>Search properties</h2>
+          <div class="row">
+            <div>
+              <label for="city">City</label>
+              <input id="city" placeholder="Buenos Aires" />
+            </div>
+            <div>
+              <label for="province">Province</label>
+              <input id="province" placeholder="Buenos Aires" />
+            </div>
+          </div>
+          <div class="row mt-8">
+            <div>
+              <label for="checkIn">Check in</label>
+              <input id="checkIn" type="date" />
+            </div>
+            <div>
+              <label for="checkOut">Check out</label>
+              <input id="checkOut" type="date" />
+            </div>
+          </div>
+          <div class="row mt-8">
+            <div>
+              <label for="guests">Guests</label>
+              <input id="guests" type="number" min="1" max="20" value="2" />
+            </div>
+            <div>
+              <label for="limit">Limit</label>
+              <input id="limit" type="number" min="1" max="50" value="10" />
+            </div>
+          </div>
+          <button class="mt-8" id="searchBtn">Search</button>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Property results</h2>
+        <p class="muted">Pick a property and use the booking panel.</p>
+        <div id="results" class="stack"></div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Selected property</h2>
+          <p class="muted">Automatically filled when you click “Select”.</p>
+          <div id="propertyDetails" class="muted">No property selected.</div>
+        </article>
+
+        <article class="card">
+          <h2>Book & quote</h2>
+          <div class="stack">
+            <div>
+              <label for="propertyId">Property ID</label>
+              <input id="propertyId" placeholder="UUID" />
+            </div>
+            <div class="row">
+              <div>
+                <label for="bookingCheckIn">Check in</label>
+                <input id="bookingCheckIn" type="date" />
+              </div>
+              <div>
+                <label for="bookingCheckOut">Check out</label>
+                <input id="bookingCheckOut" type="date" />
+              </div>
+            </div>
+            <div>
+              <label for="bookingGuests">Guests</label>
+              <input id="bookingGuests" type="number" min="1" max="20" value="2" />
+            </div>
+            <div>
+              <label for="specialRequests">Special requests</label>
+              <textarea id="specialRequests" rows="3" placeholder="Optional"></textarea>
+            </div>
+            <div class="inline-actions">
+              <button id="quoteBtn" class="ghost">Get quote</button>
+              <button id="bookBtn">Create booking</button>
+            </div>
+            <button class="secondary" id="myBookingsBtn">Load my bookings</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Response output</h2>
+        <pre id="status">Ready.</pre>
+      </section>
+    </main>
+
+    <script src="/config.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
