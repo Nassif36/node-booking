@@ -1,0 +1,12 @@
+{
+  "name": "node-booking-front",
+  "version": "1.0.0",
+  "description": "Standalone user-facing frontend for the node-booking API",
+  "scripts": {
+    "dev": "npx serve . -p 5173 --no-clipboard",
+    "start": "npx serve . -p 5173 --no-clipboard"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
