@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe, Logger } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
+import * as express from 'express';
+import { join } from 'path';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/exceptions/http-exception.filter';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
@@ -16,6 +18,9 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   const port = configService.get<number>('port', 3000);
   const nodeEnv = configService.get<string>('nodeEnv', 'development');
+
+  // Built-in frontend (static files)
+  app.use(express.static(join(process.cwd(), 'public')));
 
   // Global API prefix
   app.setGlobalPrefix('api/v1');

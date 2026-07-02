@@ -13,6 +13,7 @@ Production-ready REST API for a vacation rental booking platform targeting Argen
 - [Quick Start](#quick-start)
   - [Docker Compose (recommended)](#docker-compose-recommended)
   - [Local development](#local-development)
+  - [Frontend (built-in)](#frontend-built-in)
 - [Environment Variables](#environment-variables)
 - [Database](#database)
 - [API Overview](#api-overview)
@@ -134,6 +135,7 @@ docker compose up --build
 
 # API: http://localhost:3000/api/v1
 # Docs: http://localhost:3000/api/docs
+# Frontend: http://localhost:3000
 ```
 
 The container entrypoint automatically runs `prisma migrate deploy` before starting the app.
@@ -156,7 +158,35 @@ npm run prisma:migrate
 
 # 5. Start dev server (hot reload)
 npm run start:dev
+
+# API: http://localhost:3000/api/v1
+# Docs: http://localhost:3000/api/docs
+# Frontend: http://localhost:3000
 ```
+
+---
+
+### Frontend (built-in)
+
+This repository now includes a minimal frontend in `/public` served by NestJS at the root URL.
+
+```bash
+# Optional: customize API base URL for the frontend
+cp public/config.example.js public/config.js
+
+# Start backend + frontend
+npm run start:dev
+```
+
+Open `http://localhost:3000` to use the UI.
+
+Implemented user flows:
+- Register / login / logout
+- Search properties with filters
+- View property details
+- Get booking quote
+- Create booking
+- List authenticated user bookings
 
 ---
 
